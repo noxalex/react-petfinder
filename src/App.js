@@ -1,22 +1,20 @@
-import React from "react";
+import * as React from "react";
 import ReactDOM from "react-dom";
-import { Router, Link } from "@reach/router";
-import pf from "petfinder-client";
-
-const petfinder = pf({
-  key: process.env.API_KEY,
-  secret: process.env.API_SECRET
-});
+import { Router } from "@reach/router";
+import Results from "./Results";
+import Details from "./Details";
 
 class App extends React.Component {
-  componentDidMount() {
-    const promise = petfinder.breed.list({ animal: "dog" });
-
-    promise.then(console.log, console.error);
-  }
-
   render() {
-    return <div />;
+    return (
+      <div>
+        <h1>Adopt Me!</h1>
+        <Router>
+          <Results path="/" />
+          <Details path="/details/:id" />
+        </Router>
+      </div>
+    );
   }
 }
 
