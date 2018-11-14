@@ -1,6 +1,5 @@
 import React from "react";
 import Pet from "./Pet.js";
-import { Router, Link } from "@reach/router";
 import pf from "petfinder-client";
 
 const petfinder = pf({
@@ -39,7 +38,7 @@ class Results extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="search">
         {this.state.pets.map(pet => {
           let breed;
 
@@ -56,6 +55,7 @@ class Results extends React.Component {
               breed={breed}
               media={pet.media}
               location={`${pet.contact.city}, ${pet.contact.state}`}
+              id={pet.id}
             />
           );
         })}
