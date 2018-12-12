@@ -1,7 +1,7 @@
 import React from "react";
 import { createPortal } from "react-dom";
 
-const modalRoot = document.getElementById("modal");
+const modalRoot = document.getElementById("");
 
 class Modal extends React.Component {
   constructor(props) {
